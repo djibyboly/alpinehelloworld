@@ -1,6 +1,7 @@
 pipeline {
      environment {
        ID_DOCKER = "${ID_DOCKER_PARAMS}"
+       DOCKERHUB_PASSWORD_PSW = "${DOCKERHUB_PASSWORD_PSW}"
        IMAGE_NAME = "alpinehelloworld"
        IMAGE_TAG = "latest"
        // PORT_EXPOSED = "80" à paraméter dans le job obligatoirement
