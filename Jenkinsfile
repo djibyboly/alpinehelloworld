@@ -5,7 +5,7 @@ pipeline {
        IMAGE_NAME = "alpinehelloworld"
        IMAGE_TAG = "latest"
        // PORT_EXPOSED = "80" à paraméter dans le job obligatoirement
-       APP_NAME = "ulrich"
+       APP_NAME = "dboly"
        STG_API_ENDPOINT = "http://ip10-0-0-3-ckjdmgct654gqaevku80-1993.direct.docker.labs.eazytraining.fr"        /* Mettre le couple IP:PORT de votre API eazylabs, exemple 100.25.147.76:1993 */
        STG_APP_ENDPOINT = "http://ip10-0-0-3-ckjdmgct654gqaevku80-80.direct.docker.labs.eazytraining.fr"        /* Mettre le couple IP:PORT votre application en staging, exemple 100.25.147.76:8000 */
        PROD_API_ENDPOINT = "http://ip10-0-0-4-ckjdmgct654gqaevku80-1993.direct.docker.labs.eazytraining.fr"      /* Mettre le couple IP:PORT de votre API eazylabs, 100.25.147.76:1993 */
