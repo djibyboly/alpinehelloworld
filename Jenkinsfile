@@ -40,7 +40,7 @@ pipeline {
            steps {
               script {
                 sh '''
-                   curl -v 172.17.0.1:${EXTERNAL_PORT} | grep -q "Hello world!"
+                   curl -v 172.17.0.1:8080 | grep -q "Authentication required"
                 '''
               }
            }
