@@ -1,5 +1,5 @@
 /* import shared library */
-@Library('djibyboly-shared-library')
+@Library('djibyboly-shared-library')_
 pipeline {
      environment {
        ID_DOCKER = "${ID_DOCKER_PARAMS}"
