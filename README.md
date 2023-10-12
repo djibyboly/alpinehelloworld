@@ -1,4 +1,4 @@
 # alpinehelloworld
 An Alpine-based Docker example
 
-[![Build Status](http://192.168.56.3:8080/buildStatus/icon?job=deployement)](http://192.168.56.3:8080/job/deployement/)
+[![Build Status](https://d671-102-67-101-245.ngrok-free.app/buildStatus/icon?job=deployement)](https://d671-102-67-101-245.ngrok-free.app/job/deployement/)
