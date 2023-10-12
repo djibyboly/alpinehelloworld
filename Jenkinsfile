@@ -1,3 +1,5 @@
+/* import shared library */
+@Library('djibyboly-shared-library')
 pipeline {
      environment {
        ID_DOCKER = "${ID_DOCKER_PARAMS}"
@@ -5,10 +7,10 @@ pipeline {
        IMAGE_TAG = "latest"
        // PORT_EXPOSED = "80" à paraméter dans le job obligatoirement
        APP_NAME = "dboly"
-       STG_API_ENDPOINT = "ip10-0-3-3-ckjsb9kt654gqaevkvlg-1993.direct.docker.labs.eazytraining.fr"        /* Mettre le couple IP:PORT de votre API eazylabs, exemple 100.25.147.76:1993 */
-       STG_APP_ENDPOINT = "ip10-0-3-3-ckjsb9kt654gqaevkvlg-80.direct.docker.labs.eazytraining.fr"        /* Mettre le couple IP:PORT votre application en staging, exemple 100.25.147.76:8000 */
-       PROD_API_ENDPOINT = "ip10-0-3-4-ckjsb9kt654gqaevkvlg-1993.direct.docker.labs.eazytraining.fr"      /* Mettre le couple IP:PORT de votre API eazylabs, 100.25.147.76:1993 */
-       PROD_APP_ENDPOINT = "ip10-0-3-4-ckjsb9kt654gqaevkvlg-80.direct.docker.labs.eazytraining.fr"
+       STG_API_ENDPOINT = "ip10-0-1-3-ckju9sct654gqaevkvr0-1993.direct.docker.labs.eazytraining.fr"        /* Mettre le couple IP:PORT de votre API eazylabs, exemple 100.25.147.76:1993 */
+       STG_APP_ENDPOINT = "ip10-0-1-3-ckju9sct654gqaevkvr0-80.direct.docker.labs.eazytraining.fr"        /* Mettre le couple IP:PORT votre application en staging, exemple 100.25.147.76:8000 */
+       PROD_API_ENDPOINT = "ip10-0-1-4-ckju9sct654gqaevkvr0-1993.direct.docker.labs.eazytraining.fr"      /* Mettre le couple IP:PORT de votre API eazylabs, 100.25.147.76:1993 */
+       PROD_APP_ENDPOINT = "ip10-0-1-4-ckju9sct654gqaevkvr0-80.direct.docker.labs.eazytraining.fr"
        INTERNAL_PORT = "5000"
        EXTERNAL_PORT = "${PORT_EXPOSED}"
        CONTAINER_IMAGE = "${ID_DOCKER}/${IMAGE_NAME}:${IMAGE_TAG}"
@@ -115,12 +117,11 @@ pipeline {
      }
   } 
   post {
-       success {
-         slackSend (color: '#00FF00', message: "DBOLY - SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL}) - PROD URL => http://${PROD_APP_ENDPOINT} , STAGING URL => http://${STG_APP_ENDPOINT}")
-         }
-      failure {
-            slackSend (color: '#FF0000', message: "DBOLY - FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-          }   
-    }    
+       always {
+         script {
+            slackNotifier currentBuild.result
+          } 
+      }  
+   }    
 }
 
