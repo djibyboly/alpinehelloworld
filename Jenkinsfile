@@ -1,15 +1,14 @@
 pipeline {
      environment {
        ID_DOCKER = "${ID_DOCKER_PARAMS}"
-       DOCKERHUB_PASSWORD_PSW = "${DOCKERHUB_PASSWORD_PSW}"
        IMAGE_NAME = "alpinehelloworld"
        IMAGE_TAG = "latest"
        // PORT_EXPOSED = "80" à paraméter dans le job obligatoirement
        APP_NAME = "dboly"
-       STG_API_ENDPOINT = "http://ip10-0-4-3-ckjfg0st654gqaevkum0-1993.direct.docker.labs.eazytraining.fr"        /* Mettre le couple IP:PORT de votre API eazylabs, exemple 100.25.147.76:1993 */
-       STG_APP_ENDPOINT = "http://ip10-0-4-3-ckjfg0st654gqaevkum0-80.direct.docker.labs.eazytraining.fr"        /* Mettre le couple IP:PORT votre application en staging, exemple 100.25.147.76:8000 */
-       PROD_API_ENDPOINT = "http://ip10-0-4-4-ckjfg0st654gqaevkum0-1993.direct.docker.labs.eazytraining.fr"      /* Mettre le couple IP:PORT de votre API eazylabs, 100.25.147.76:1993 */
-       PROD_APP_ENDPOINT = "http://ip10-0-4-4-ckjfg0st654gqaevkum0-80.direct.docker.labs.eazytraining.fr"
+       STG_API_ENDPOINT = "ip10-0-0-3-ckjjhdkt654gqaevkv7g-1993.direct.docker.labs.eazytraining.fr"        /* Mettre le couple IP:PORT de votre API eazylabs, exemple 100.25.147.76:1993 */
+       STG_APP_ENDPOINT = "ip10-0-0-3-ckjjhdkt654gqaevkv7g-80.direct.docker.labs.eazytraining.fr"        /* Mettre le couple IP:PORT votre application en staging, exemple 100.25.147.76:8000 */
+       PROD_API_ENDPOINT = "ip10-0-0-4-ckjjhdkt654gqaevkv7g-1993.direct.docker.labs.eazytraining.fr"      /* Mettre le couple IP:PORT de votre API eazylabs, 100.25.147.76:1993 */
+       PROD_APP_ENDPOINT = "ip10-0-0-4-ckjjhdkt654gqaevkv7g-80.direct.docker.labs.eazytraining.fr"
        INTERNAL_PORT = "5000"
        EXTERNAL_PORT = "${PORT_EXPOSED}"
        CONTAINER_IMAGE = "${ID_DOCKER}/${IMAGE_NAME}:${IMAGE_TAG}"
